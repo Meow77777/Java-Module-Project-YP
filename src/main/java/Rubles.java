@@ -6,17 +6,16 @@ public class Rubles {
     }
     void formatter(double pricePerson){
         String message = "Каждый человек должен заплатить: %.2f %s";
-        switch ((int) pricePerson%10){
-            case 1:
-                System.out.printf((message) + "%n",pricePerson,"рубль");
-                break;
-            case 2,3,4:
-                System.out.printf((message) + "%n",pricePerson,"рубля");
-                break;
-            default:
-                System.out.printf((message) + "%n",pricePerson,"рублей");
-                break;
+        double x = Math.floor(pricePerson)%10;
+        double y = Math.floor(pricePerson)%100;
+        if (y>10 && y<20 || x>4 && x<10 || x == 0 || y == 0){
+            System.out.printf((message) + "%n",pricePerson,"рублей");
+        } else if (x==1) {
+            System.out.printf((message) + "%n",pricePerson,"рубль");
+        } else {
+            System.out.printf((message) + "%n",pricePerson,"рубля");
         }
+
     }
 }
 
