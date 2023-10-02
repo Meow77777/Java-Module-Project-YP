@@ -11,7 +11,7 @@ public class Main {
         while (true) {
             if (scanner.hasNextInt()) {
                 numberOfPerson = scanner.nextInt();
-                if (numberOfPerson == 1 | numberOfPerson < 1) {
+                if (numberOfPerson == 1 || numberOfPerson < 1) {
                     System.out.println("Введите число больше 1");
                 } else {
                     break;
@@ -26,14 +26,14 @@ public class Main {
         String nameOfProduct = "";
         String productSum = "";
         double sumPrice = 0;
-
+        StringBuilder s = new StringBuilder();
 
         while (true) {
             scanner.nextLine();
             System.out.println("Введите название товара");
             if (scanner.hasNextLine()) {
                 nameOfProduct = scanner.nextLine();
-                productSum += nameOfProduct + "\n";
+                s.append(nameOfProduct).append("\n");
                 System.out.println("Введите стоимость товара");
                 while (true){
                     if (scanner.hasNextDouble()) {
@@ -62,7 +62,7 @@ public class Main {
             }
         }
         double moneyPerPerson = sumPrice/numberOfPerson;
-        System.out.println("Добавленные товары:\n"+productSum);
+        System.out.println("Добавленные товары:\n"+ s.toString());
 
         Rubles rubles = new Rubles(moneyPerPerson);
         rubles.formatter(moneyPerPerson);
